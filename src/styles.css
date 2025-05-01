@@ -71,6 +71,10 @@ body {
   width: 34px;
 }
 
+.highlight {
+  color: blue;
+}
+
 .board-row:after {
   clear: both;
   content: '';
