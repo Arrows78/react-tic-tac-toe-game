@@ -75,11 +75,19 @@ export default function Game() {
     } else {
       description = 'Go to game start';
     }
-    return (
-      <li key={move}>
-        <button onClick={() => jumpTo(move)}>{description}</button>
-      </li>
-    );
+    if (move === currentMove) {
+      return (
+        <li key={move}>
+          <span>You are at move #{move}</span>
+        </li>
+       );
+    } else {
+      return (
+        <li key={move}>
+          <button onClick={() => jumpTo(move)}>{description}</button>
+        </li>
+      );
+     }
   });
 
   return (
