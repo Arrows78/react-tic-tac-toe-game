@@ -21,6 +21,14 @@ function Game() {
     setCurrentMove(nextMove);
   }
 
+  function restartGame() {
+    const confirmed = window.confirm('Are you sure you want to start a new game?');
+    if(confirmed) {
+      setHistory([Array(9).fill(null)])
+      setCurrentMove(0);
+    }
+  }
+
   const moves = history.map((squares, move) => {
     if (move === currentMove) {
       return (
@@ -62,6 +70,7 @@ function Game() {
       </div>
 
       <div className="game-info">
+        <button onClick={restartGame}>Restart game</button>
         <button onClick={() => setIsAscending(!isAscending)}>
           Sort {isAscending ? 'Descending' : 'Ascending'}
         </button>
