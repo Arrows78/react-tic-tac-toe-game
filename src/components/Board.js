@@ -21,7 +21,7 @@ function Board({ xIsNext, squares, onPlay, winningLine }) {
         onSquareClick={() => handleClick(i)}
         highlight={winningLine?.includes(i)}
       />
-    )
+    );
   };
 
   const renderBoard = () => {
@@ -33,7 +33,9 @@ function Board({ xIsNext, squares, onPlay, winningLine }) {
         boardRow.push(renderSquare(index));
       }
       board.push(
-        <div key={row} className="board-row">{boardRow}</div>
+        <div key={row} className="board-row">
+          {boardRow}
+        </div>
       );
     }
 
@@ -46,8 +48,8 @@ function Board({ xIsNext, squares, onPlay, winningLine }) {
   const status = winner
     ? `Winner: ${winner}`
     : squares.every(Boolean)
-    ? "Draw !"
-    : `Next player: ${xIsNext ? 'X' : 'O'}`;
+      ? 'Draw !'
+      : `Next player: ${xIsNext ? 'X' : 'O'}`;
 
   return (
     <>

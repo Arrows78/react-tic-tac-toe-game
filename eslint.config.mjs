@@ -1,15 +1,16 @@
-import js from "@eslint/js";
-import globals from "globals";
-import pluginReact from "eslint-plugin-react";
-import pluginReactHooks from "eslint-plugin-react-hooks";
+import js from '@eslint/js';
+import globals from 'globals';
+import pluginReact from 'eslint-plugin-react';
+import pluginReactHooks from 'eslint-plugin-react-hooks';
+import prettier from 'eslint-config-prettier';
 
 export default [
   {
-    files: ["**/*.{js,mjs,cjs,jsx}"],
+    files: ['**/*.{js,mjs,cjs,jsx}'],
     plugins: {
       js,
       react: pluginReact,
-      "react-hooks": pluginReactHooks,
+      'react-hooks': pluginReactHooks,
     },
     languageOptions: {
       globals: globals.browser,
@@ -20,12 +21,13 @@ export default [
       },
     },
     rules: {
-      "react/prop-types": "off",
-      "react/react-in-jsx-scope": "off",
-      "no-console": "warn",
-      "react/jsx-uses-vars": "error",
-      "react-hooks/rules-of-hooks": "error",
-      "react-hooks/exhaustive-deps": "warn",
+      'react/prop-types': 'off',
+      'react/react-in-jsx-scope': 'off',
+      'no-console': 'warn',
+      'react/jsx-uses-vars': 'error',
+      'react-hooks/rules-of-hooks': 'error',
+      'react-hooks/exhaustive-deps': 'warn',
     },
   },
+  prettier,
 ];

@@ -23,8 +23,8 @@ function Game() {
 
   function restartGame() {
     const confirmed = window.confirm('Are you sure you want to start a new game?');
-    if(confirmed) {
-      setHistory([Array(9).fill(null)])
+    if (confirmed) {
+      setHistory([Array(9).fill(null)]);
       setCurrentMove(0);
     }
   }
@@ -35,7 +35,7 @@ function Game() {
         <li key={move}>
           <span>You are at move #{move}</span>
         </li>
-       );
+      );
     }
 
     let description;
@@ -45,7 +45,7 @@ function Game() {
       const prev = history[move - 1];
       const currentIndex = squares.findIndex((val, i) => val !== prev[i]);
       const row = Math.floor(currentIndex / 3) + 1;
-      const col = currentIndex % 3 + 1;
+      const col = (currentIndex % 3) + 1;
       description = `Go to move #${move} (${row}, ${col})`;
     }
 
