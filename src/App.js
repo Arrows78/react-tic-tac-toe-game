@@ -66,6 +66,7 @@ export default function Game() {
   const [history, setHistory] = useState([Array(9).fill(null)]);
   const [currentMove, setCurrentMove] = useState(0);
   const [isAscending, setIsAscending] = useState(true);
+
   const xIsNext = currentMove % 2 === 0;
   const currentSquares = history[currentMove];
   const winnerResult = calculateWinner(currentSquares);
@@ -83,7 +84,12 @@ export default function Game() {
   const moves = history.map((squares, move) => {
     let description;
     if (move > 0) {
-      description = 'Go to move #' + move;
+      const prev = history[move - 1];
+      const curr = squares;
+      const index = curr.findIndex((val, i) => val !== prev[i]);
+      const row = Math.floor(index / 3) + 1;
+      const col = index % 3 + 1;
+      description = `Go to move #${move} (${row}, ${col})`;
     } else {
       description = 'Go to game start';
     }
